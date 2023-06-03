@@ -59,17 +59,14 @@ session_start();
   </div>
 
   <!-- Content -->
-  <h3 class="fw-bold mb-3" style="margin-top:80px;">
-    <center>Welcome</center>
-  </h3>
-  <h1 class="pt-4" style="color: midnightblue;">
-    <!-- <center><?= $_SESSION['name'] ?></center> -->
-    <center>SYAFIRA WIDIYANTI</center>
+  <h1 class="pt-6" style="color: midnightblue;">
+    <center>WELCOME ADMIN</center>
   </h1>
 
   <!-- footer -->
   <div class="fixed-bottom text-light" style="background-color:midnightblue; height: 43px;">
     <p class="m-2">
+      
       <center>Inventory Web 2021</center>
     </p>
   </div>
