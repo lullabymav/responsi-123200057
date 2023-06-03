@@ -60,9 +60,11 @@ require('connect.php');
   </div>
 
   <!-- Content -->
-  <h1 class="pt-32" style="color: midnightblue;">
-    <center>WELCOME ADMIN</center>
-  </h1>
+  <div class="">
+    <h1 style="padding-top: 12rem; color: midnightblue;">
+      <center>WELCOME ADMIN</center>
+    </h1>
+  </div>
 
   <!-- footer -->
   <div class="fixed-bottom text-light" style="background-color:midnightblue; height: 43px;">
