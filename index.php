@@ -50,11 +50,11 @@ session_start();
           </li>
         </ul>
       </div>
-      <!-- <div class="nav-item">
+      <div class="nav-item">
         <form action="" class="nav-link active py-0" method="POST">
           <button class="btn rounded-0 p-0 text-light px-3" name="logout" style="background-color: midnightblue;">Logout</button>
         </form>
-      </div> -->
+      </div>
     </nav>
   </div>
 
@@ -92,9 +92,9 @@ session_start();
 </body>
 
 <?php
-if(isset($_POST['logout'])){
-  session_destroy();
-  header("location:index.php");
-}
+  if(isset($_POST['logout'])){
+    session_destroy();
+    header("location:https://user-cred-op-r4kjthgzqa-et.a.run.app/");
+  }
 ?>
 </html>
