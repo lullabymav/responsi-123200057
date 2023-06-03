@@ -1,5 +1,28 @@
 <?php
+    ob_start();
+
     require('connect.php');
+
+    if(isset($_POST['submit'])){
+        $email = $_POST["email"];
+        $pass = md5($_POST["pass"]);
+
+        $sql = "SELECT * FROM user_register WHERE email='$email' AND pass='$pass'";
+
+        $result = $mydb->query($sql);
+
+        if ($result -> num_rows > 0) {
+            // login successful
+            // session_start();
+            echo "Login successful";
+            header("location:https://crud-op-r4kjthgzqa-et.a.run.app/index.php");
+        } else {
+            // Login failed
+            echo "Invalid email or password";
+        }
+
+        $mydb->close();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -38,47 +61,3 @@
 
   </body>
 </html>
-
-<?php 
-    if(isset($_POST['submit'])){
-        $email = $_POST["email"];
-        $pass = md5($_POST["pass"]);
-
-        $sql = "SELECT * FROM user_register WHERE email='$email' AND pass='$pass'";
-
-        $result = $mydb->query($sql);
-
-        //$name = $mydb->query($query);
-        // while($row = $result->fetch_object()){
-        //     $fullname = $row->full_name;
-        // }
-
-        if ($result -> num_rows > 0) {
-            // login successful
-            // session_start();
-            echo "Login successful";
-            header("location:https://crud-op-r4kjthgzqa-et.a.run.app/index.php");
-        } else {
-            // Login failed
-            echo "Invalid email or password";
-        }
-
-        // $sql=mysqli_query($mydb, "SELECT * FROM staff WHERE username='$user' and password='$pass'");
-        // $check=mysqli_num_rows($sql);
-        // // $check = 1;
-
-        // if($check>0){
-        //     session_start();
-        //     $_SESSION['username']=$user;
-        //     $_SESSION['password']=$pass;
-        //     $_SESSION['name']=$fullname;
-        //     header("location:https://crud-op-r4kjthgzqa-et.a.run.app/index.php");
-        // }
-        // else{
-        //     echo "<p align=center>Invalid username or password</p>";
-        //     echo "<p align=center>Please try again</p>";
-        // }
-
-        $mydb->close();
-    }
-?>
