@@ -1,5 +1,25 @@
 <?php
+    ob_start();
+    
     require('connect.php');
+
+    if(isset($_POST['submit'])){
+        $firstName = $_POST["firstName"];
+        $lastName = $_POST["lastName"];
+        $email = $_POST["email"];
+        $pass = md5($_POST["pass"]);
+
+        $sql = "INSERT INTO user_register (firstName, lastName, email, pass) VALUES ('$firstName', '$lastName', '$email', '$pass')";
+
+        if ($mydb->query($sql) === TRUE) {
+            echo "Registration successful";
+            header("location:index.php");
+        } else {
+            echo "Error: " . $sql . "<br>" . $mydb->error;
+        }
+
+        $mydb->close();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +37,7 @@
   <body>
     <div class="container-re">
       <div class="wrapper">
-        <div class="title"><span>Registration Form</span></div>
+        <div class="title"><span>Registration Admin</span></div>
         <form action="" method="POST">
           <div class="row">
             <i class="fas fa-user" for="firstName"></i>
@@ -46,23 +66,3 @@
 
   </body>
 </html>
-
-<?php 
-    if(isset($_POST['submit'])){
-        $firstName = $_POST["firstName"];
-        $lastName = $_POST["lastName"];
-        $email = $_POST["email"];
-        $pass = md5($_POST["pass"]);
-
-        $sql = "INSERT INTO user_register (firstName, lastName, email, pass) VALUES ('$firstName', '$lastName', '$email', '$pass')";
-
-        if ($mydb->query($sql) === TRUE) {
-            echo "Registration successful";
-            header("location:index.php");
-        } else {
-            echo "Error: " . $sql . "<br>" . $mydb->error;
-        }
-
-        $mydb->close();
-    }
-?>

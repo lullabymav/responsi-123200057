@@ -17,7 +17,7 @@
   <body>
     <div class="container">
       <div class="wrapper">
-        <div class="title"><span>Login Form</span></div>
+        <div class="title"><span>Login Admin</span></div>
         <form action="" method="POST">
           <div class="row">
             <i class="fas fa-envelope" for="email"></i>
@@ -55,7 +55,7 @@
 
         if ($result -> num_rows > 0) {
             // login successful
-            session_start();
+            // session_start();
             echo "Login successful";
             header("location:https://crud-op-r4kjthgzqa-et.a.run.app/index.php");
         } else {
