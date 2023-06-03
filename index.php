@@ -1,6 +1,7 @@
 <?php
+ob_start();
+
 require('connect.php');
-session_start();
 ?>
 
 <!doctype html>
@@ -59,14 +60,13 @@ session_start();
   </div>
 
   <!-- Content -->
-  <h1 class="pt-6" style="color: midnightblue;">
+  <h1 class="pt-32" style="color: midnightblue;">
     <center>WELCOME ADMIN</center>
   </h1>
 
   <!-- footer -->
   <div class="fixed-bottom text-light" style="background-color:midnightblue; height: 43px;">
     <p class="m-2">
-      
       <center>Inventory Web 2021</center>
     </p>
   </div>
