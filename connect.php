@@ -1,5 +1,5 @@
 <?php
-    $server="localhost";
+    $server="34.123.150.246";
     $username="root";
     $password="";
     $db="responsi";
