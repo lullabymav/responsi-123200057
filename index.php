@@ -93,7 +93,7 @@ session_start();
 
 <?php
   if(isset($_POST['logout'])){
-    session_destroy();
+    // session_destroy();
     header("location:https://user-cred-op-r4kjthgzqa-et.a.run.app/");
   }
 ?>
