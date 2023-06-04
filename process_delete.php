@@ -7,6 +7,22 @@
     $query = "SELECT * FROM inventory WHERE item_id='$id'";
     $execute = $mydb->query($query);
     $row = $execute->fetch_object();
+
+    if(isset($_POST['delete'])){
+
+        $id = $_GET['id'];
+    
+        $query = "DELETE FROM inventory WHERE item_id='$id'";
+        $execute = $mydb->query($query);
+    
+        if($execute){
+            header('location: view_inventory.php?status=success');
+        }else{
+            header('location: view_inventory.php?status=failed');
+        }
+    }else if(isset($_POST['cancel'])){
+        header('location: view_inventory.php');
+    }
 ?>
 
 <!doctype html>
@@ -58,22 +74,3 @@
     </script>
 </body>
 </html>
-
-<?php
-
-if(isset($_POST['delete'])){
-
-    $id = $_GET['id'];
-
-    $query = "DELETE FROM inventory WHERE item_id='$id'";
-    $execute = $mydb->query($query);
-
-    if($execute){
-        header('location: view_inventory.php?status=success');
-    }else{
-        header('location: view_inventory.php?status=failed');
-    }
-}else if(isset($_POST['cancel'])){
-    header('location: view_inventory.php');
-}
-?>
